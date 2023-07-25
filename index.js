@@ -8,7 +8,8 @@ const topsRoute=require("./routes/toproute")
 const userRouter=require("./routes/userroute")
 const auth=require("./middleware/auth")
 const AdminRoute = require('./routes/AdminRoutes');
-const cors=require("cors")
+const cors=require("cors");
+const authrouter = require("./routes/auth.router");
 const app=express()
 
 app.use(express.json())
@@ -24,12 +25,14 @@ app.use(cors())
 
 app.use("/users", userRouter)
 
+app.use("/auth",authrouter)
+
 app.use("/jeans", jeansRouter)
 
 app.use("/tops", topsRoute)
 
 app.use("/shoes", ShoesRoute)
-app.use(auth);
+app.use(auth)
 app.use("/cart",cartRoute)
 app.use("/admin",AdminRoute)
 ///////

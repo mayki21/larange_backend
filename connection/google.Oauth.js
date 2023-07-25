@@ -15,7 +15,7 @@ passport.use(
     {
       clientID: client_id,
       clientSecret: client_secret,
-      callbackURL: "http://localhost:9006/users/auth/google/callback",
+      callbackURL: "https://larangebackend.onrender.com/auth/google/callback",
     },
     async function (accessToken, refreshToken, profile, cb) {
       let user = {
